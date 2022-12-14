@@ -2,6 +2,15 @@ export const subtract = (_num1: string, _num2: string) => {
     let num1 = _num1
     let num2 = _num2
 
+    let result = ''
+
+    const isNegative = Number.parseInt(_num1) < Number.parseInt(_num2)
+
+    if (isNegative) {
+        num1 = _num2
+        num2 = _num1
+    }
+
     if (num2.length < num1.length) {
         const diff = num1.length - num2.length
         num2 = `${'0'.repeat(diff)}${num2}`
@@ -9,8 +18,6 @@ export const subtract = (_num1: string, _num2: string) => {
         const diff = num2.length - num1.length
         num1 = `${'0'.repeat(diff)}${num1}`
     }
-
-    let result = ''
 
     for (let i = num1.length - 1; i >= 0; i--) {
         let n1 = Number.parseInt(num1[i])
@@ -27,5 +34,5 @@ export const subtract = (_num1: string, _num2: string) => {
         result = res.toString() + result
     }
 
-    return result
+    return isNegative ? `-${result}` : result
 }
