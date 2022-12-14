@@ -1,2 +1,3 @@
 # karatsuba-multiplication
-Karatsuba Multiplication
+
+This is an implementation of Karatsuba algorithm for n-digit multiplication.

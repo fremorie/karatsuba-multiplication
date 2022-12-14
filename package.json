@@ -1,0 +1,22 @@
+{
+  "name": "karatsuba-multiplication",
+  "version": "1.0.0",
+  "description": "Karatsuba multiplication algorithm in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fremorie/karatsuba-multiplication.git"
+  },
+  "author": "Daria Borisiak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fremorie/karatsuba-multiplication/issues"
+  },
+  "homepage": "https://github.com/fremorie/karatsuba-multiplication#readme",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}
