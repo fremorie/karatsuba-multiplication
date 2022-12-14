@@ -1,5 +1,6 @@
 import { subtract } from './subtract'
 import { isNegative } from './isNegative'
+import { removeLeadingZeroes } from './removeLeadingZeroes'
 
 export const add = (_num1: string, _num2: string): string => {
     let num1 = _num1
@@ -49,5 +50,5 @@ export const add = (_num1: string, _num2: string): string => {
         }
     }
 
-    return result.replace(/^0+/, '')
+    return removeLeadingZeroes(result)
 }

@@ -1,4 +1,5 @@
 import { isNegative } from './isNegative'
+import { removeLeadingZeroes } from './removeLeadingZeroes'
 import { add } from './add'
 
 export const subtract = (_num1: string, _num2: string): string => {
@@ -53,5 +54,5 @@ export const subtract = (_num1: string, _num2: string): string => {
         result = res.toString() + result
     }
 
-    return isResultNegative ? `-${result}` : result
+    return isResultNegative ? `-${removeLeadingZeroes(result)}` : removeLeadingZeroes(result)
 }
