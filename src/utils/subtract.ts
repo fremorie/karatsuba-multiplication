@@ -1,12 +1,31 @@
-export const subtract = (_num1: string, _num2: string) => {
+import { isNegative } from './isNegative'
+import { add } from './add'
+
+export const subtract = (_num1: string, _num2: string): string => {
     let num1 = _num1
     let num2 = _num2
 
+    if (isNegative(num1) && !isNegative(num2)) {
+        num1 = num1.slice(1, num1.length)
+        return `-${add(num2, num1)}`
+    }
+
+    if (!isNegative(num1) && isNegative(num2)) {
+        num2 = num2.slice(1, num2.length)
+        return add(num1, num2)
+    }
+
+    if (isNegative(num1) && isNegative(num2)) {
+        num1 = num1.slice(1, num1.length)
+        num2 = num2.slice(1, num2.length)
+        return subtract(num2, num1)
+    }
+
     let result = ''
 
-    const isNegative = Number.parseInt(_num1) < Number.parseInt(_num2)
+    const isResultNegative = Number.parseInt(_num1) < Number.parseInt(_num2)
 
-    if (isNegative) {
+    if (isResultNegative) {
         num1 = _num2
         num2 = _num1
     }
@@ -34,5 +53,5 @@ export const subtract = (_num1: string, _num2: string) => {
         result = res.toString() + result
     }
 
-    return isNegative ? `-${result}` : result
+    return isResultNegative ? `-${result}` : result
 }

@@ -1,6 +1,9 @@
 import { add } from '../add'
 
 describe('add', () => {
+    it('should work with primitives', () => {
+        expect(add('3', '5')).toEqual('8')
+    })
     it('should add two numbers without overflow', () => {
         expect(add('456', '123')).toEqual('579')
     })
@@ -22,5 +25,17 @@ describe('add', () => {
         const y = '99999988888837373737373737373737373722229999988765765764651111111'
 
         expect(add(x, y)).toEqual('100012301201149686049686049686860496853462131219997078076963423424')
+    })
+
+    it('should work if the second number is negative', () => {
+        expect(add('999', '-123')).toEqual('876')
+    })
+
+    it('should work if the first number is negative', () => {
+        expect(add('-999', '123')).toEqual('-876')
+    })
+
+    it('should work if both numbers are negative', () => {
+        expect(add('-999', '-123')).toEqual('-1122')
     })
 })

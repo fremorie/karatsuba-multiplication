@@ -1,4 +1,4 @@
-import { add, subtract, multiplyByPowerOfTen } from "../utils";
+import { add, subtract, multiplyByPowerOfTen } from '../utils'
 
 export const karatsuba = (num1: string, num2: string): string => {
     if (num1.length === 1 || num2.length === 1)
@@ -17,6 +17,7 @@ export const karatsuba = (num1: string, num2: string): string => {
 
     /* 3 recursive calls made to numbers approximately half the size. */
     const z0 = karatsuba(low1, low2)
+
     const z1 = karatsuba(add(low1, high1), add(low2, high2))
     const z2 = karatsuba(high1, high2)
 

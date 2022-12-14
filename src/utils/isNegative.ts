@@ -1,0 +1,1 @@
+export const isNegative = (num: string) => num[0] === '-'

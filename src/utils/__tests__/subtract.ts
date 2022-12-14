@@ -30,4 +30,16 @@ describe('subtract', () => {
 
         expect(subtract(x, y)).toEqual('99987676576525061425061425060614250590997868757534453452338798798')
     })
+
+    it('should work if the second number is negative', () => {
+        expect(subtract('999', '-123')).toEqual('1122')
+    })
+
+    it('should work if the first number is negative', () => {
+        expect(subtract('-999', '123')).toEqual('-1122')
+    })
+
+    it('should work if both numbers are negative', () => {
+        expect(subtract('-999', '-123')).toEqual('-876')
+    })
 })

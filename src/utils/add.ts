@@ -1,6 +1,25 @@
-export const add = (_num1: string, _num2: string) => {
+import { subtract } from './subtract'
+import { isNegative } from './isNegative'
+
+export const add = (_num1: string, _num2: string): string => {
     let num1 = _num1
     let num2 = _num2
+
+    if (isNegative(num1) && !isNegative(num2)) {
+        num1 = num1.slice(1, num1.length)
+        return subtract(num2, num1)
+    }
+
+    if (!isNegative(num1) && isNegative(num2)) {
+        num2 = num2.slice(1, num2.length)
+        return subtract(num1, num2)
+    }
+
+    if (isNegative(num1) && isNegative(num2)) {
+        num1 = num1.slice(1, num1.length)
+        num2 = num2.slice(1, num2.length)
+        return `-${add(num2, num1)}`
+    }
 
     if (num2.length < num1.length) {
         const diff = num1.length - num2.length
@@ -30,5 +49,5 @@ export const add = (_num1: string, _num2: string) => {
         }
     }
 
-    return result
+    return result.replace(/^0+/, '')
 }
