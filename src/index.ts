@@ -1,0 +1,1 @@
+export { karatsuba as default } from './karatsuba'

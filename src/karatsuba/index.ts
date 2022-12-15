@@ -19,12 +19,32 @@ const addLeadingZero = (num: string) => {
     return num.length % 2 === 0 ? num : `0${num}`
 }
 
+const processInput = (num1: string, num2: string) => {
+    if (num1.length === num2.length) {
+        return [num1, num2]
+    }
+
+    if (num1.length < num2.length) {
+        return [
+            `${'0'.repeat(num2.length - num1.length)}${num1}`,
+            num2,
+        ]
+    } else {
+        return [
+            num1,
+            `${'0'.repeat(num1.length - num2.length)}${num2}`,
+        ]
+    }
+}
+
 export const karatsuba = (_num1: string, _num2: string): string => {
     if (removeLeadingZeroes(_num1).length === 1 || removeLeadingZeroes(_num2).length === 1)
         return (Number.parseInt(_num1) * Number.parseInt(_num2)).toString() /* fall back to traditional multiplication */
 
-    const num1 = addLeadingZero(_num1)
-    const num2 = addLeadingZero(_num2)
+    const __num1 = addLeadingZero(_num1)
+    const __num2 = addLeadingZero(_num2)
+
+    const [num1, num2] = processInput(__num1, __num2)
 
     /* Calculates the size of the numbers. */
     const m = Math.min(num1.length, num2.length)

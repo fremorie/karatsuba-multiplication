@@ -82,4 +82,20 @@ describe('karatsuba', () => {
             })
         })
     })
+
+    describe('Numbers of different length', () => {
+        const sets = [
+            {x: '123456', y: '2', result: '246912'},
+            {x: '123456', y: '789', result: '97406784'},
+            {x: '123456', y: '12', result: '1481472'},
+            {x: '56', y: '10', result: '560'}
+        ]
+
+        sets.forEach(({x, y, result}) => {
+            it(`should yield correct result for x=${x} and y=${y}`, () => {
+                console.log(123456 * 12, karatsuba(x, y))
+                expect(karatsuba(x, y)).toEqual(result)
+            })
+        })
+    })
 })
